@@ -1,0 +1,13 @@
+dvc
+dvc-gdrive
+mlflow
+evidently
+fastapi
+uvicorn
+scikit-learn
+lightgbm
+torch
+pandas
+numpy
+joblib
+pyngrok
