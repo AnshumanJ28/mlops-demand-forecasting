@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+cloudflared
+artifacts/lgb_model.pkl
+artifacts/geo_encoder.pkl
+artifacts/time_extractor.pkl
+artifacts/cat_encoder.pkl
+.ipynb_checkpoints/
