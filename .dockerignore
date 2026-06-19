@@ -1,0 +1,11 @@
+.git
+.dvc
+.github
+data/
+reports/
+tests/
+notebooks/
+__pycache__
+*.pyc
+*.pyo
+.env
