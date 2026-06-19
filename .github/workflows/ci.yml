@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
@@ -29,10 +29,9 @@ jobs:
 
       - name: Run prediction tests
         run: pytest tests/test_predict.py -v
-        continue-on-error: true
 
-      - name: Check drift monitoring script
-        run: python -c "from src.monitor import run_monitor; print('✓ monitor module loads ok')"
+      - name: Verify monitor module
+        run: python -c "from src.monitor import run_monitor"
 
-      - name: Check training script
-        run: python -c "from src.train import train_lightgbm; print('✓ train module loads ok')"
+      - name: Verify train module
+        run: python -c "from src.train import train_lightgbm"
