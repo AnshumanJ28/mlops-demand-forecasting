@@ -1,0 +1,127 @@
+{
+  "metrics": [
+    {
+      "id": "15e89f895b482f9b84ba7274ed18a106",
+      "metric_name": "DriftedColumnsCount(drift_share=0.5)",
+      "config": {
+        "type": "evidently:metric_v2:DriftedColumnsCount",
+        "drift_share": 0.5
+      },
+      "value": {
+        "count": 1.0,
+        "share": 0.1
+      }
+    },
+    {
+      "id": "b0e016eaaacf44b47aa25892be1f1c24",
+      "metric_name": "ValueDrift(column=geohash_encoded,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "geohash_encoded",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.027566550131789096
+    },
+    {
+      "id": "c64ecf263235641a4c979f593f6f62f3",
+      "metric_name": "ValueDrift(column=hour,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "hour",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.06218709821789281
+    },
+    {
+      "id": "791252835952e68c135899e6207ec363",
+      "metric_name": "ValueDrift(column=day_of_week,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "day_of_week",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.02953777375985899
+    },
+    {
+      "id": "775d58826c83ad4993f890c6b77b02a9",
+      "metric_name": "ValueDrift(column=is_weekend,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "is_weekend",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.000626967582238225
+    },
+    {
+      "id": "d7380f21e71807a1d91c62973381ece7",
+      "metric_name": "ValueDrift(column=is_rush_hour,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "is_rush_hour",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.020741446157618075
+    },
+    {
+      "id": "68b208df3f5390186d7942c913b49cf5",
+      "metric_name": "ValueDrift(column=hour_sin,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "hour_sin",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.05134294999275267
+    },
+    {
+      "id": "4637c03fa8dac375c7991f34825c9d76",
+      "metric_name": "ValueDrift(column=hour_cos,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "hour_cos",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 0.015699984806167827
+    },
+    {
+      "id": "aaa8acf73cbddd14e1b652dfe01fc1d9",
+      "metric_name": "ValueDrift(column=road_type_encoded,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "road_type_encoded",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.010902770582729275
+    },
+    {
+      "id": "51872d1b67a56e5f282f938f1f62f242",
+      "metric_name": "ValueDrift(column=weather_encoded,method=Jensen-Shannon distance,threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "weather_encoded",
+        "method": "Jensen-Shannon distance",
+        "threshold": 0.1
+      },
+      "value": 0.01380331141382604
+    },
+    {
+      "id": "d68f9d174bd22d48d0856d226943a02b",
+      "metric_name": "ValueDrift(column=demand,method=Wasserstein distance (normed),threshold=0.1)",
+      "config": {
+        "type": "evidently:metric_v2:ValueDrift",
+        "column": "demand",
+        "method": "Wasserstein distance (normed)",
+        "threshold": 0.1
+      },
+      "value": 1.9683060002865678
+    }
+  ],
+  "tests": []
+}
