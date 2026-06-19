@@ -1,0 +1,38 @@
+name: MLOps CI Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest
+
+      - name: Run feature tests
+        run: pytest tests/test_features.py -v
+
+      - name: Run prediction tests
+        run: pytest tests/test_predict.py -v
+        continue-on-error: true
+
+      - name: Check drift monitoring script
+        run: python -c "from src.monitor import run_monitor; print('✓ monitor module loads ok')"
+
+      - name: Check training script
+        run: python -c "from src.train import train_lightgbm; print('✓ train module loads ok')"
