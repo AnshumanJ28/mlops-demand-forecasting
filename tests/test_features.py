@@ -1,7 +1,8 @@
 import pandas as pd
 import numpy as np
 import sys
-sys.path.append('/content/mlops-demand-forecasting')
+import os
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from src.features import (GeohashEncoder, TimeFeatureExtractor,
                           CategoricalEncoder, FEATURE_COLS, TARGET_COL)
@@ -18,7 +19,6 @@ def test_geohash_encoder():
     out = enc.fit_transform(df)
     assert 'geohash_encoded' in out.columns
     assert out['geohash_encoded'].isnull().sum() == 0
-    print("✓ test_geohash_encoder passed")
 
 def test_time_feature_extractor():
     df = pd.DataFrame({
@@ -37,10 +37,9 @@ def test_time_feature_extractor():
     assert 'is_rush_hour' in out.columns
     assert 'hour_sin' in out.columns
     assert 'hour_cos' in out.columns
-    assert out.loc[0, 'is_rush_hour'] == 1  # 8am is rush hour
-    assert out.loc[1, 'is_rush_hour'] == 0  # 2pm is not
-    assert out.loc[2, 'is_weekend']   == 1  # Saturday
-    print("✓ test_time_feature_extractor passed")
+    assert out.loc[0, 'is_rush_hour'] == 1
+    assert out.loc[1, 'is_rush_hour'] == 0
+    assert out.loc[2, 'is_weekend']   == 1
 
 def test_categorical_encoder():
     df = pd.DataFrame({
@@ -55,7 +54,6 @@ def test_categorical_encoder():
     assert 'road_type_encoded' in out.columns
     assert 'weather_encoded' in out.columns
     assert out['road_type_encoded'].isnull().sum() == 0
-    print("✓ test_categorical_encoder passed")
 
 def test_feature_cols_complete():
     df = pd.DataFrame({
@@ -73,11 +71,3 @@ def test_feature_cols_complete():
     df   = cat.fit_transform(df)
     for col in FEATURE_COLS:
         assert col in df.columns, f"Missing feature: {col}"
-    print("✓ test_feature_cols_complete passed")
-
-if __name__ == '__main__':
-    test_geohash_encoder()
-    test_time_feature_extractor()
-    test_categorical_encoder()
-    test_feature_cols_complete()
-    print("\n✅ All feature tests passed!")
